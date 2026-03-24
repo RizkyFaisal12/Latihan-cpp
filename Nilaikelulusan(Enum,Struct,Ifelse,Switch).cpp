@@ -45,7 +45,7 @@ if (siswa.Nilaitotaldesimal>=0&&siswa.Nilaitotaldesimal<=40){
     Nilaitotal = E;
 }
 
-if ((siswa.Tugas>=0&&siswa.Tugas<100)&&(siswa.UTS>=0&&siswa.UTS<100)&&(siswa.UAS>=0&&siswa.UAS<100)){
+if ((siswa.Tugas>=0&&siswa.Tugas<=100)&&(siswa.UTS>=0&&siswa.UTS<=100)&&(siswa.UAS>=0&&siswa.UAS<=100)){
     cout << "\nNilai kamu      = "<< siswa.Nilaitotaldesimal << "\n";  
   
     switch(Nilaitotal){
