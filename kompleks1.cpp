@@ -12,27 +12,27 @@ struct databarang{
     char kodeunik;
 };
 
-
-float totalnilaibarang;
-jenisbarang barang;
-
 int main (){
 
-int kategoribarang[3];
+
 int jumlahuser;
+float totalnilaibarang = 0;
+jenisbarang barang;
 
 cout << "Masukkan jumlah user yang ingin menginput = ";
 cin >> jumlahuser;
 cin.ignore();
 
 databarang jumlahdata [jumlahuser]; 
+int kategoribarang[jumlahuser];
 cout << "\n";
 for (int i=0;i<jumlahuser;i++){
     cout << "\n\tBarang ke-"<< i+1 <<"\n";
     cout << "\n1. Elektronik\n2. Pakaian\n3. Makanan\n";
     cout <<"Masukkan kategori barang = ";
     cin >> kategoribarang[i];
-    cin.ignore();
+
+    if (kategoribarang[i]>=1&&kategoribarang[i]<=3){
    
     switch (kategoribarang[i]){
     case 1:
@@ -57,9 +57,11 @@ for (int i=0;i<jumlahuser;i++){
         break;
 
     default : 
-        cout << "\nBarang tidak tersedia!";
+        cout << "\nJenis barang atau makanan tidak tersedia!";
+        break;
     }
 
+    cin.ignore();
     cout << "\nMasukkan nama barang = ";
     getline (cin, jumlahdata[i].nama);
 
@@ -75,14 +77,19 @@ for (int i=0;i<jumlahuser;i++){
     cin.ignore();
 
      totalnilaibarang += jumlahdata[i].stock*jumlahdata[i].harga;
-}
+     }else { break;}
+}   
 
-    cout <<"\nTotal nilai barang = " << totalnilaibarang << "\n";
-    cout << "\n\tData barang :\n";
+    for (int i=0;i<jumlahuser;i++){
+        if ((kategoribarang[i] >=1) && (kategoribarang[i]<=3)){
+            continue;
+        }else{break;}
+    }
 
     for (int i = 0;i<jumlahuser;i++){
+        if (kategoribarang[i]>=1&&kategoribarang[i]<=3){
         cout << "\n\tData barang ke-"<< i+1<<"\n";
-        cout << "Kategori yang dipilih pada barang ke-"<< i+1 <<"= " << jumlahdata[i].nama<< " dengan kode unik ("<< jumlahdata[i].kodeunik << ")\n";     
+        cout << "Kategori yang dipilih pada barang ke-"<< i+1 <<" = " << jumlahdata[i].nama<< " dengan kode unik ("<< jumlahdata[i].kodeunik << ")\n";     
     
         cout << "stock barang = "<< jumlahdata[i].stock << "\n";
         
@@ -97,6 +104,8 @@ for (int i=0;i<jumlahuser;i++){
         }else {
             cout << "Kemewahan = Barang biasa \n";
         }
+        }else { 
+            cout << "Kategori barang tidak tersedia!"; break;}
     }
 
 
