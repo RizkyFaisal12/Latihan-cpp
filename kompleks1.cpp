@@ -19,7 +19,7 @@ int jumlahuser;
 float totalnilaibarang = 0;
 jenisbarang barang;
 
-cout << "Masukkan jumlah user yang ingin menginput = ";
+cout << "\nMasukkan jumlah user yang ingin menginput = ";
 cin >> jumlahuser;
 cin.ignore();
 
@@ -88,6 +88,7 @@ for (int i=0;i<jumlahuser;i++){
 
     for (int i = 0;i<jumlahuser;i++){
         if (kategoribarang[i]>=1&&kategoribarang[i]<=3){
+        cout << "\nData tersimpan :";
         cout << "\n\tData barang ke-"<< i+1<<"\n";
         cout << "Kategori yang dipilih pada barang ke-"<< i+1 <<" = " << jumlahdata[i].nama<< " dengan kode unik ("<< jumlahdata[i].kodeunik << ")\n";     
     
@@ -105,7 +106,7 @@ for (int i=0;i<jumlahuser;i++){
             cout << "Kemewahan = Barang biasa \n";
         }
         }else { 
-            cout << "Kategori barang tidak tersedia!"; break;}
+            cout << "\n- Kategori barang pada data ke-"<< i+1 <<" dan seterusnya tidak akan dicatat oleh program!, dikarenakan data yang anda input pada data ke-" << i+1 << " tidak ada di dalam kategori!"; break;}
     }
 
 
